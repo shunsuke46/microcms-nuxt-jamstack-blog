@@ -1,6 +1,9 @@
 <template>
   <main class="main">
     <h1 class="title">{{ title }}</h1>
+    <p class="name">{{ name }}</p>
+    <p class="prefectureja">{{ prefectureja }}</p>
+    <p class="prefectureen">{{ prefectureen }}</p>
     <p class="publishedAt">{{ publishedAt }}</p>
     <div class="post" v-html="body"></div>
   </main>
@@ -11,15 +14,17 @@ import axios from 'axios'
 
 export default {
   async asyncData({ params }) {
+    console.log( params );
     const { data } = await axios.get(
-      `https://samplearimura.microcms.io/api/v1/blog/${params.slug}`,
+      `https://samplearimura.microcms.io/api/v1/data/${params.slug}`,
       {
-        headers: { 'X-API-KEY': 'eb3bd0a2-28ab-44b5-bcb4-9a0c59edef96' }
+        headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
       }
     )
     return data
   }
 }
+
 </script>
 <style lang="scss" scoped>
 .main {
@@ -29,6 +34,7 @@ export default {
 
 .title {
   margin-bottom: 20px;
+  color:red;
 }
 
 .publishedAt {

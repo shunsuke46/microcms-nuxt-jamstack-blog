@@ -60,8 +60,8 @@ export default {
   generate: {
     async routes() {
       const pages = await axios
-        .get('https://samplearimura.microcms.io/api/v1/blog?limit=100', {
-          headers: { 'X-API-KEY': 'eb3bd0a2-28ab-44b5-bcb4-9a0c59edef96' }
+        .get('https://samplearimura.microcms.io/api/v1/data?limit=100', {
+          headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
         })
         .then((res) =>
           res.data.contents.map((content) => ({
