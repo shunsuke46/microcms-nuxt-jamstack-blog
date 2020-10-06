@@ -29,6 +29,14 @@ export default {
         headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
       }
     )
+    const { blog } = await axios.get(
+      // your-service-id部分は自分のサービスidに置き換えてください
+      'https://samplearimura.microcms.io/api/v1/blog',
+      {
+        // your-api-key部分は自分のapi-keyに置き換えてください
+        headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
+      }
+    )
  
     let onakasuita = {};
     
@@ -39,6 +47,7 @@ export default {
     }
     
     return data
+    return blog
   
   },
   data: function() {
@@ -51,6 +60,7 @@ export default {
           { title: '参加費のお釣りを準備する', isChecked: false },
           { title: '会場設営をする', isChecked: false },
       ],
+      keyword:'',      
       newItemTitle: '',
       prefecture: '',
     }
@@ -59,22 +69,27 @@ export default {
     async updateList() {
       const { data } = await axios.get(
         // your-service-id部分は自分のサービスidに置き換えてください
-        'https://samplearimura.microcms.io/api/v1/blog',  //?q=+ this.newItemTitle
+        'https://samplearimura.microcms.io/api/v1/data?q='+this.keyword,  //?q=+ this.newItemTitle
         {
           // your-api-key部分は自分のapi-keyに置き換えてください
           headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
         }
       )
+         const { blog } = await axios.get(
+        // your-service-id部分は自分のサービスidに置き換えてください
+        'https://samplearimura.microcms.io/api/v1/blog?q='+this.keyword,  //?q=+ this.newItemTitle
+        {
+          // your-api-key部分は自分のapi-keyに置き換えてください
+          headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
+        }
+         )
+      
   
       let onakasuita = {};
       
-      for( let i = 0; data.contents.length > i; i++ ){
-        if( data.contents[i].IdentityDocument == 1 ){
-          delete data.contents[i].IdentityDocument;
-        }
-      }
-      
-      return data
+      console.log(data)
+      console.log(blog)
+      this.contents=data.contents
     }
   }
 }
