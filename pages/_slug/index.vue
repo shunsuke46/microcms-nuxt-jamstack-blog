@@ -5,7 +5,7 @@
     <p class="prefectureja">{{ prefectureja }}</p>
     <p class="prefectureen">{{ prefectureen }}</p>
     <p class="publishedAt">{{ publishedAt }}</p>
-    <div class="post" v-html="body"></div>
+    <!-- <div class="post" v-html="body"></div> -->
   </main>
 </template>
 
@@ -21,14 +21,8 @@ export default {
         headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
       }
     )
-     const { blog } = await axios.get(
-      `https://samplearimura.microcms.io/api/v1/blog/${params.slug}`,
-      {
-        headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
-      }
-    )
     return data
-    return blog
+  
   }
 }
 
