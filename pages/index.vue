@@ -4,6 +4,10 @@
 <div id="app">
 <input v-model="keyword" placeholder="Search...">
 <input type="button" value="検索"  v-on:click="updateList()">
+<ul>
+    <li><a href="https://samplearimura.microcms.io/api/v1/map">マップ</a></li>
+    
+</ul>
   <ul>
     <li v-for="content in contents" :key="content.id">
       <nuxt-link :to="`/${content.id}`">
@@ -29,14 +33,6 @@ export default {
         headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
       }
     )
-    // const { blog } = await axios.get(
-    //   // your-service-id部分は自分のサービスidに置き換えてください
-    //   'https://samplearimura.microcms.io/api/v1/blog',
-    //   {
-    //     // your-api-key部分は自分のapi-keyに置き換えてください
-    //     headers: { 'X-API-KEY': '8c148f4c-3a95-4d30-b3ba-72d534fc42e7' }
-    //   }
-    // )
  
     let onakasuita = {};
     
