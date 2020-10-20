@@ -4,6 +4,7 @@
     <p class="name">{{ name }}</p>
     <p class="prefectureja">{{ prefectureja }}</p>
     <p class="prefectureen">{{ prefectureen }}</p>
+    <p class="aaaa">{{ aaaa }}</p>
     <p class="publishedAt">{{ publishedAt }}</p>
     <!-- <div class="post" v-html="body"></div> -->
   </main>

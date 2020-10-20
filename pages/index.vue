@@ -4,10 +4,7 @@
 <div id="app">
 <input v-model="keyword" placeholder="Search...">
 <input type="button" value="検索"  v-on:click="updateList()">
-<ul>
-    <li><a href="https://samplearimura.microcms.io/api/v1/map">マップ</a></li>
-    
-</ul>
+
   <ul>
     <li v-for="content in contents" :key="content.id">
       <nuxt-link :to="`/${content.id}`">
